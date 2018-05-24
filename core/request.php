@@ -3,8 +3,6 @@ if (!empty($_GET)&&isset($_GET['delete'])){
 	deleteTask($_GET['delete']);
 }
 
-$task = selectAll();
-
 
 if (!empty($_POST)&&isset($_POST['delete'])) {
 	deleteTask($_POST['delete']);
@@ -22,6 +20,8 @@ function selectAll(){
 	$preparation->execute();
 	return $preparation->fetchAll( PDO::FETCH_ASSOC );
 }
+
+$task = selectAll();
 
 function deleteTask($id){
 	global $bdd;
